@@ -4,93 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99cf0004-4955-45d8-a2de-baf56b0864c5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/vi5hnu/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/test/java/com/vi5hnu/AppTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/AppServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/controllers/AppController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/resources/application-dev.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/resources/application-prod.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/test/java/com/vi5hnu/app_service/AppServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/AuthServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Dto/ForgotPasswordRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Dto/GoogleLoginRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Dto/LoginRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Dto/LoginResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Dto/RegisterRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Dto/ResetPasswordRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Dto/RoleDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Dto/UpdatePasswordDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Dto/UpdatePasswordInit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Dto/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Dto/user/UserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Entity/aarti/AartiModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Entity/user/OtpModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Entity/user/UserModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Entity/user/VerificationTokenModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/annotation/RequireUserWith.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/aspects/RequireUserWithAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/commons/Pageable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/configuration/AopConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/configuration/OpenApiConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/configuration/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/configuration/WebClientConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/constants/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/enums/AccountType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/enums/Environment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/enums/OtpReason.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/enums/OtpStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/enums/TokenReason.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/enums/TokenStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/events/authEvents/AlertEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/events/authEvents/OtpEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/events/authEvents/PasswordUpdateComplete.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/events/authEvents/PasswordUpdateInit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/events/authEvents/RegistrationVerificationEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/events/listeners/AlertEventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/events/listeners/OtpEventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/events/listeners/PasswordUpdateCompleteEventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/events/listeners/RegistrationVerificationEventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/events/listeners/UpdatePasswordInitEventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/exceptions/ApiException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/exceptions/CustomAccessDeniedHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/exceptions/CustomAuthenticationEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/exceptions/UserAlreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/exceptions/handler/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/security/SecurityUserDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/security/SecurityUserDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/security/filters/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/services/GoogleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/services/JwtService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/services/user/OtpRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/services/user/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/services/user/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/services/user/VerificationTokenRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/specifications/OtpSpecifications.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/specifications/UserSpecifications.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/specifications/VerificationTokenSpecifications.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/utils/IdGenerators.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/utils/Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/resources/application-dev.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/resources/application-prod.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/resources/migrations/email-templates.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/resources/migrations/otp-table.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/resources/migrations/user-table.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/resources/migrations/verification_token-table.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/test/java/com/vi5hnu/AppTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/test/java/com/vi5hnu/auth_service/AuthServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core-utilities/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core-utilities/src/main/java/com/vi5hnu/core_utilities/configs/WebClientConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core-utilities/src/main/java/com/vi5hnu/core_utilities/exceptions/TestException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="99cf0004-4955-45d8-a2de-baf56b0864c5" name="Changes" comment="added auth">
+      <change afterPath="$PROJECT_DIR$/auth-service/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Dto/GoogleTokenDataDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Entity/user/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Entity/user/UserModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/services/GoogleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/services/GoogleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/resources/migrations/user-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/resources/migrations/user-table.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,16 +80,22 @@
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/auth-service" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/auth-service" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.vi5hnu.auth_service.Dto" />
       <recent name="com.vi5hnu.auth_service.specifications" />
       <recent name="com.vi5hnu.auth_service.services.user" />
       <recent name="com.vi5hnu.auth_service.events.listeners" />
       <recent name="com.vi5hnu.auth_service.events.authEvents" />
-      <recent name="com.vi5hnu.auth_service.Dto" />
     </key>
   </component>
   <component name="RunManager" selected="Application.AuthServiceApplication">
     <configuration name="AuthServiceApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="envFilePaths">
+        <option value="$PROJECT_DIR$/auth-service/.env" />
+      </option>
       <option name="MAIN_CLASS_NAME" value="com.vi5hnu.auth_service.AuthServiceApplication" />
       <module name="auth-service" />
       <extension name="coverage">
@@ -186,6 +115,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.app-service" />
+      <item itemvalue="Application.AuthServiceApplication" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -196,7 +129,20 @@
       <option name="presentableId" value="Default" />
       <updated>1736441956100</updated>
     </task>
+    <task id="LOCAL-00001" summary="added auth">
+      <option name="closed" value="true" />
+      <created>1736832524073</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1736832524074</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="added auth" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -208,7 +154,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
-          <line>111</line>
+          <line>113</line>
           <properties>
             <option name="lambda-ordinal" value="-1" />
           </properties>
@@ -216,18 +162,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
-          <line>105</line>
+          <line>107</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
-          <line>67</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/services/user/UserService.java</url>
-          <line>78</line>
-          <option name="timeStamp" value="34" />
+          <line>191</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

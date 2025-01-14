@@ -36,6 +36,7 @@ public class UserModel {
     @Column(name = "account_type",nullable = false)
     private AccountType accountType;
 
+    @Column(name = "profile_url") private String profileUrl;
     @Column(name = "first_name") private String firstName;
     @Column(name = "last_name") private String lastName;
     @Column(name = "username") private String username;

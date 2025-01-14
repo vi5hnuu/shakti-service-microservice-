@@ -1,6 +1,7 @@
 CREATE TABLE users (
     id VARCHAR(255) PRIMARY KEY,
     account_type ENUM('GOOGLE','MANUAL') NOT NULL,
+    profile_url VARCHAR(255) DEFAULT NULL,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) DEFAULT NULL,
     username VARCHAR(255) NOT NULL,

@@ -44,6 +44,8 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 
 @RestController
 @RequestMapping(path = "api/v1/users")
@@ -176,37 +178,78 @@ public class UserController {
             throw new ApiException(HttpStatus.UNAUTHORIZED,"Invalid username/email/password.");
         }
         final String jwtToken=jwtService.generateJwtToken(userModel.getId(),jwtExpireMs,jwtSecret);
-        httpResponse.addCookie(Utils.generateCookie(jwtToken, jwtExpireMs, "/"));
+        final var cookie=Utils.generateCookie(jwtToken, jwtExpireMs, "/");
+        httpResponse.addCookie(cookie);
 
         return ResponseEntity.ok(Map.of("success",true,"data",UserModel.toDto(userModel),"message","login success"));
     }
 
     @PostMapping(path = "login/google")
-    public ResponseEntity<Map<String,Object>> googleLogin(@RequestBody @Valid GoogleLoginRequestDto googleLoginRequestDto, HttpServletResponse httpResponse) throws ApiException {
+    public ResponseEntity<Map<String,Object>> googleLogin(@RequestBody @Valid GoogleLoginRequestDto googleLoginRequestDto, HttpServletResponse httpResponse,HttpServletRequest httpServletRequest) throws ApiException {
         //verify token
         try{
             //picture,picture ? true = picture,email,name (full name)
-            final Map<String, Object> tokenData=googleService.extractIdTokenData(googleLoginRequestDto.getIdToken());
+            final var data=googleService.verifyAndGetData(googleLoginRequestDto.getIdToken());
 
-            //check if such user exists
-//            final UserModel userModel=this.userService.findUserByUsernameEmail(googleLoginRequestDto.getUsernameEmail()).orElseThrow(()->new ApiException(HttpStatus.UNAUTHORIZED,"Invalid username/Email/password"));
-//
-//            if(userModel.isLocked()){
-//                throw new ApiException(HttpStatus.FORBIDDEN,"Account Suspended");
-//            }else if(!userModel.isEnabled()){
-//                throw new ApiException(HttpStatus.FORBIDDEN,"Account Not Verified");
-//            }
-//            //validate password
-//            if( !(userModel.getUsername().equals(loginRequestDto.getUsernameEmail()) || userModel.getEmail().equals(loginRequestDto.getUsernameEmail())) || !passwordEncoder.matches(loginRequestDto.getPassword(), userModel.getPassword())){
-//                throw new ApiException(HttpStatus.UNAUTHORIZED,"Invalid username/email/password.");
-//            }
-//            final String jwtToken=jwtService.generateJwtToken(userModel.getId(),jwtExpireMs,jwtSecret);
-//            httpResponse.addCookie(Utils.generateCookie(jwtToken, jwtExpireMs, "/"));
+            final Optional<UserModel> userModel=userRepository.findOne(UserSpecifications.activeUserByUsernameOrEmail(data.getEmail(),null,null,null));
 
+            if(userModel.isPresent()){
+                final var user=userModel.get();
+
+                if(!user.getAccountType().equals(AccountType.GOOGLE)) throw new ApiException(HttpStatus.BAD_REQUEST,"Email already registered with other account");
+
+                if(user.isDeleted()){
+                    //Handle account deleted previously
+                    throw new ApiException(HttpStatus.FORBIDDEN,"Something went wrong");
+                }else if(user.isLocked()) throw new ApiException(HttpStatus.BAD_REQUEST,"Account suspended");
+                else if(!user.isEnabled()) throw new ApiException(HttpStatus.BAD_REQUEST,"Account not verified");
+
+                final String jwtToken=jwtService.generateJwtToken(user.getId(),jwtExpireMs,jwtSecret);
+                final var cookie=Utils.generateCookie(jwtToken, jwtExpireMs, "/");
+                httpResponse.addCookie(cookie);
+                return ResponseEntity.ok(Map.of("success",true,"data",UserModel.toDto(user),"message","login success"));
+            }
+
+            final var user=UserModel.builder()
+                    .accountType(AccountType.GOOGLE)
+                    .email(data.getEmail())
+                    .isEnabled(data.isEmailVerified())
+                    .roles(Set.of(UserRole.ROLE_USER))
+                    .firstName(data.getName())
+                    .profileUrl(data.getPictureUrl())
+                    .username(data.getName().replaceAll(" ","")+data.getUserId())
+                    .build();
+
+            final var savedUser=userRepository.save(user);
+
+            if(!data.isEmailVerified()){
+                final var token=Utils.generateToken();
+
+                //save verification token for the user
+                Timestamp expireAt = Timestamp.valueOf(LocalDateTime.now().plusMinutes(VerificationTokenModel.EXPIRE_AFTER_MINS));
+                final VerificationTokenModel vtm=VerificationTokenModel.builder()
+                        .token(token)
+                        .reason(TokenReason.ACCOUNT_VERIFICATION)
+                        .expireAt(expireAt)
+                        .status(TokenStatus.UN_USED)
+                        .userId(savedUser.getId())
+                        .build();
+                verificationTokenRepository.save(vtm);
+
+                //send email
+                publisher.publishEvent(new RegistrationVerificationEvent(savedUser,token, this.getVerificationUrl(httpServletRequest)));
+
+                //send response
+                return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("success",true,"message","check your email to verify account."));
+            }
+
+            final String jwtToken=jwtService.generateJwtToken(user.getId(),jwtExpireMs,jwtSecret);
+            final var cookie=Utils.generateCookie(jwtToken, jwtExpireMs, "/");
+            httpResponse.addCookie(cookie);
+            return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("success",true,"data",UserModel.toDto(user),"message","login success"));
         }catch (SignatureException e){
             return ResponseEntity.badRequest().body(Map.of("success",false,"message","invalid/expired token."));
         }
-        return ResponseEntity.ok(Map.of("success",true,"message","login success"));
     }
 
     @GetMapping(path = "logout")
