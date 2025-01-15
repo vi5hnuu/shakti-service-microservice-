@@ -34,6 +34,7 @@ public class VerificationTokenModel {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    @Builder.Default()
     private TokenStatus status = TokenStatus.UN_USED;
 
     @Enumerated(EnumType.STRING)

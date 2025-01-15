@@ -45,11 +45,20 @@ public class UserModel {
 
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "roles",columnDefinition = "json")
+    @Builder.Default()
     private Set<UserRole> roles=Set.of(UserRole.ROLE_USER);
 
-    @Column(name = "is_locked") private boolean isLocked=false; // is blocked or not
-    @Column(name = "is_enabled") private boolean isEnabled=false; //is verified or not
-    @Column(name = "is_deleted") private boolean isDeleted=false; //is verified or not
+    @Column(name = "is_locked")
+    @Builder.Default()
+    private boolean isLocked=false; // is blocked or not
+
+    @Column(name = "is_enabled")
+    @Builder.Default()
+    private boolean isEnabled=false; //is verified or not
+
+    @Column(name = "is_deleted")
+    @Builder.Default()
+    private boolean isDeleted=false; //is verified or not
 
     @CreationTimestamp
     @Column(name = "created_at") private Timestamp createdAt;

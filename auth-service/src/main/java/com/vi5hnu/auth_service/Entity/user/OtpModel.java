@@ -35,6 +35,7 @@ public class OtpModel {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    @Builder.Default()
     private OtpStatus status = OtpStatus.UN_USED;
 
     @Enumerated(EnumType.STRING)
