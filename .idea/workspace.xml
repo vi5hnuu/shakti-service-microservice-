@@ -4,16 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99cf0004-4955-45d8-a2de-baf56b0864c5" name="Changes" comment="added auth">
-      <change afterPath="$PROJECT_DIR$/auth-service/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Dto/GoogleTokenDataDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="99cf0004-4955-45d8-a2de-baf56b0864c5" name="Changes" comment="added google login">
+      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/configuration/KafkaProducerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/services/KafkaNotificationPublisherService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/vi5hnu/notification_service/NotificationServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/vi5hnu/notification_service/configurations/KafkaConsumerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/vi5hnu/notification_service/services/KafkaNotificationConsumerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/test/java/com/vi5hnu/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/test/java/com/vi5hnu/notification_service/NotificationServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Entity/user/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Entity/user/UserModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/services/GoogleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/services/GoogleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/resources/migrations/user-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/resources/migrations/user-table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +52,7 @@
   "keyToString": {
     "Application.AppServiceApplication.executor": "Debug",
     "Application.AuthServiceApplication.executor": "Debug",
+    "Application.NotificationServiceApplication.executor": "Debug",
     "Application.app-service.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
@@ -56,6 +64,8 @@
     "Maven.core-utilities [install].executor": "Run",
     "Maven.core-utils [clean].executor": "Run",
     "Maven.core-utils [install].executor": "Run",
+    "Maven.notification-service [clean].executor": "Run",
+    "Maven.notification-service [install].executor": "Run",
     "Maven.shakti-service [clean].executor": "Run",
     "Maven.shakti-service [install].executor": "Run",
     "Repository.Attach.Annotations": "false",
@@ -65,20 +75,20 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/vishnukumar/Downloads/shakti-service/auth-service/src/main/resources/migrations",
+    "last_opened_file_path": "/Users/vishnukumar/Downloads/shakti-service/notification-service",
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "preferences.intentionPowerPack"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/notification-service" />
       <recent name="$PROJECT_DIR$/auth-service/src/main/resources/migrations" />
       <recent name="$PROJECT_DIR$/auth-service/src/main/resources" />
       <recent name="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/auth-service" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/auth-service" />
@@ -91,7 +101,7 @@
       <recent name="com.vi5hnu.auth_service.events.authEvents" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AuthServiceApplication">
+  <component name="RunManager" selected="Application.NotificationServiceApplication">
     <configuration name="AuthServiceApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="envFilePaths">
         <option value="$PROJECT_DIR$/auth-service/.env" />
@@ -101,6 +111,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.vi5hnu.auth_service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotificationServiceApplication" type="Application" factoryName="Application" singleton="true" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vi5hnu.notification_service.NotificationServiceApplication" />
+      <module name="notification-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vi5hnu.notification_service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -118,7 +141,13 @@
     <list>
       <item itemvalue="Application.app-service" />
       <item itemvalue="Application.AuthServiceApplication" />
+      <item itemvalue="Application.NotificationServiceApplication" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.NotificationServiceApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -137,12 +166,21 @@
       <option name="project" value="LOCAL" />
       <updated>1736832524074</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added google login">
+      <option name="closed" value="true" />
+      <created>1736837051869</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1736837051869</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="added auth" />
+    <MESSAGE value="added google login" />
+    <option name="LAST_COMMIT_MESSAGE" value="added google login" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -169,6 +207,11 @@
           <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
           <line>191</line>
           <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/notification-service/src/main/java/com/vi5hnu/notification_service/services/KafkaNotificationConsumerService.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
