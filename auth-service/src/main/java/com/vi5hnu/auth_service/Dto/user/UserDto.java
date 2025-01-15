@@ -19,8 +19,14 @@ public class UserDto {
     private String lastName;
     private String username;
     private String email;
+
+    @Builder.Default()
     private boolean isLocked=false; // is suspended or not
+
+    @Builder.Default()
     private boolean isEnabled=false; //is verified or not
+
+    @Builder.Default()
     private boolean isDeleted=false;
     private Timestamp createdAt;
     private Timestamp updatedAt;
