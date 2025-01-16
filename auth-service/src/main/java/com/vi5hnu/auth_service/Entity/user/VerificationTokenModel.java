@@ -1,7 +1,9 @@
 package com.vi5hnu.auth_service.Entity.user;
 
+import com.vi5hnu.auth_service.constants.Constants;
 import com.vi5hnu.auth_service.enums.TokenReason;
 import com.vi5hnu.auth_service.enums.TokenStatus;
+import com.vi5hnu.auth_service.utils.IdGenerators;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,8 +26,7 @@ public class VerificationTokenModel {
     public static final int EXPIRE_AFTER_MINS = 15 ; // 15 mins
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     @Column(name = "user_id")
     private String userId;
 
@@ -54,5 +55,10 @@ public class VerificationTokenModel {
 
     public VerificationTokenModel(String userId,String token,TokenReason reason){
         this(null,userId,token,null,reason,null,null,null);
+    }
+
+    @PrePersist()
+    private void beforeSave(){
+        if(getId()==null) setId(IdGenerators.generateIdWithPrefix(Constants.VERIFICATION_TOKEN_ID_PREFIX));
     }
 }

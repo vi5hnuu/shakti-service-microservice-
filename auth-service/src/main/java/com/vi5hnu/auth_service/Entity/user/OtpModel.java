@@ -1,7 +1,9 @@
 package com.vi5hnu.auth_service.Entity.user;
 
+import com.vi5hnu.auth_service.constants.Constants;
 import com.vi5hnu.auth_service.enums.OtpReason;
 import com.vi5hnu.auth_service.enums.OtpStatus;
+import com.vi5hnu.auth_service.utils.IdGenerators;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -21,8 +23,7 @@ public class OtpModel {
     public static final int EXPIRE_AFTER_MINS=15;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     @Column(nullable = false)
     private String otp;
@@ -49,4 +50,10 @@ public class OtpModel {
     @Column(name = "updated_at",nullable = false)
     @UpdateTimestamp
     private Timestamp updatedAt;
+
+    @PrePersist()
+    private void beforeSave(){
+        if(getId()==null) setId(IdGenerators.generateIdWithPrefix(Constants.OTP_ID_PREFIX));
+    }
+
 }

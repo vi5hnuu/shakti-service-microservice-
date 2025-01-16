@@ -51,6 +51,12 @@
 			<artifactId>spring-kafka</artifactId>
 		</dependency>
 
+		<!--    eureka client    -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>

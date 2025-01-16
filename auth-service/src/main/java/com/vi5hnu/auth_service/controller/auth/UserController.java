@@ -14,6 +14,7 @@ import com.vi5hnu.auth_service.exceptions.UserAlreadyExistsException;
 import com.vi5hnu.auth_service.exceptions.ApiException;
 import com.vi5hnu.auth_service.services.GoogleService;
 import com.vi5hnu.auth_service.services.JwtService;
+import com.vi5hnu.auth_service.services.KafkaNotificationPublisherService;
 import com.vi5hnu.auth_service.services.user.OtpRepository;
 import com.vi5hnu.auth_service.services.user.UserRepository;
 import com.vi5hnu.auth_service.services.user.UserService;
@@ -62,6 +63,13 @@ public class UserController {
     private final GoogleService googleService;
     private final JwtService jwtService;
     private final ObjectMapper objectMapper;
+    private final KafkaNotificationPublisherService kafkaNotificationPublisherService;
+
+    @GetMapping(path = "test")
+    public ResponseEntity<String> send(){
+        kafkaNotificationPublisherService.sendNotification("Hello there");
+        return ResponseEntity.ok("test");
+    }
 
     @GetMapping(path = "all")
     @PreAuthorize("hasRole('ROLE_ADMIN')")

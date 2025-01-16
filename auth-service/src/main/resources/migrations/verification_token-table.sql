@@ -1,5 +1,5 @@
 CREATE TABLE verification_token (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id VARCHAR(32) PRIMARY KEY,
     user_id VARCHAR(32) NOT NULL,
     token VARCHAR(255) NOT NULL,
     status ENUM('UN_USED', 'USED', 'REVOKED') NOT NULL,

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class KafkaNotificationPublisherService {
     private static final String TOPIC = "auth-notifications";
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<String, String> kafkaTemplate;
 
     public void sendNotification(String message) {
         kafkaTemplate.send(TOPIC, message);
