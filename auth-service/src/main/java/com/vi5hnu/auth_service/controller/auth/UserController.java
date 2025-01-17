@@ -353,8 +353,11 @@ public class UserController {
     public ResponseEntity<String> verifyJwtToken(HttpServletRequest httpServletRequest) throws ApiException {
         final var token=jwtService.getTokenFromRequest(httpServletRequest);
         final var claims=jwtService.getClaims(token,jwtSecret);
-        final var user=userRepository.findOne(UserSpecifications.activeUserById(claims.getSubject()));
+        final var user=userRepository.findOne(UserSpecifications.activeUserById(claims.getSubject(),null,null,false)).orElseThrow(()->new ApiException(HttpStatus.NOT_FOUND,"User not found"));
 
+        //this should never pass...as token will be created for enabled account only
+        if(user.isLocked()) throw new ApiException(HttpStatus.BAD_REQUEST,"Account Suspended");
+        else if(!user.isEnabled()) throw new ApiException(HttpStatus.BAD_REQUEST,"Account not verified");
         return ResponseEntity.ok("Verification success!");
     }
 

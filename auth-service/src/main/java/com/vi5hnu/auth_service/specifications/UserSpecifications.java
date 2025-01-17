@@ -6,6 +6,7 @@ import lombok.NonNull;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserSpecifications {
     public static Specification<UserModel> findUserById(@NonNull String userId,boolean isLocked,boolean isEnabled,boolean isDeleted) {
@@ -44,6 +45,18 @@ public class UserSpecifications {
             Predicate isNotLockerPredicate = criteriaBuilder.equal(root.get("isLocked"), false);
 
             return criteriaBuilder.and(userPredicate,isNotDeletedPredicate,isNotLockerPredicate,isEnabledPredicate);
+        };
+    }
+    public static Specification<UserModel> activeUserById(@NonNull String userId,Boolean isEnabled,Boolean isLocked,Boolean isDeleted) {
+        return (root, query, criteriaBuilder) -> {
+            assert query != null;
+            // Build predicates
+            final List<Predicate> predicates=new ArrayList<>();
+            predicates.add(criteriaBuilder.equal(root.get("id"), userId));
+            if(isDeleted!=null) predicates.add(criteriaBuilder.equal(root.get("isDeleted"), isDeleted));
+            if(isEnabled!=null) predicates.add(criteriaBuilder.equal(root.get("isEnabled"), isEnabled));
+            if(isLocked!=null) predicates.add(criteriaBuilder.equal(root.get("isLocked"), isLocked));
+            return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
         };
     }
     public static Specification<UserModel> activeUserByUsername(@NonNull String username) {
