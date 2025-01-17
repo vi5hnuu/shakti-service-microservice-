@@ -1,9 +1,5 @@
-package com.vi5hnu.auth_service.services;
+package com.vi5hnu.app_service.services;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vi5hnu.auth_service.Dto.user.UserDto;
-import com.vi5hnu.auth_service.Entity.user.UserModel;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -11,34 +7,24 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.ws.rs.core.HttpHeaders;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 import java.security.Key;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class JwtService {
-    public String generateJwtToken(UserDto user, long jwtExpirationMilliSeconds, String jwtSecret) {
-
-        final Date curDate=new Date();
-        final Date expireDate=new Date(curDate.getTime()+jwtExpirationMilliSeconds);
-        return Jwts.builder()
-                .setSubject(user.getId())
-                .claim("first_name",user.getFirstName())
-                .claim("last_name",user.getLastName())
-                .claim("username",user.getUsername())
-                .claim("email",user.getEmail())
-                .claim("is_verified",user.isEnabled())
-                .claim("created_at",user.getCreatedAt())
-                .claim("roles",user.getRoles())
-                .setIssuedAt(curDate)
-                .setExpiration(expireDate)
-                .signWith(key(jwtSecret), SignatureAlgorithm.HS256).compact();
-    }
+    @Value("${auth.service.url}") String authServiceUrl;
+    private final WebClient webClient;
 
     public Claims getClaims(String token,Key jwtSecret){
         return Jwts.parserBuilder()
@@ -69,5 +55,26 @@ public class JwtService {
         String bearerTokenRaw=request.getHeader("Authorization");
         if(bearerTokenRaw==null || !bearerTokenRaw.startsWith("Bearer")){return null;}
         return bearerTokenRaw.substring(7);
+    }
+
+    public boolean verifyToken(String token) {
+        try {
+            webClient.post()
+                    .uri(authServiceUrl + "/jwt/verify")
+                    .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
+                    .retrieve()
+                    .onStatus(HttpStatusCode::isError, clientResponse -> {
+                        // Handle non-2xx responses (e.g., invalid token or server errors)
+                        return Mono.error(new RuntimeException("Token verification failed: " + clientResponse.statusCode()));
+                    })
+                    .bodyToMono(Void.class) // No need to map the body if we're only interested in the status
+                    .block(); // Block for a response
+
+            return true; // If we reach here, the response was 2xx
+        } catch (Exception e) {
+            // Log the exception or handle it as needed
+            System.err.println("Error verifying token: " + e.getMessage());
+            return false; // Token verification failed
+        }
     }
 }

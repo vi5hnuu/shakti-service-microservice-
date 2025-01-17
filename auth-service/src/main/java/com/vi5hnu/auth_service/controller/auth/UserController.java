@@ -160,7 +160,7 @@ public class UserController {
         otpRepository.saveAll(latestUnUsedActiveOtps);
 
         //renew token
-        final String jwtToken=jwtService.generateJwtToken(userModel.getId(),jwtExpireMs,jwtSecret);
+        final String jwtToken=jwtService.generateJwtToken(UserModel.toDto(userModel),jwtExpireMs,jwtSecret);
         httpResponse.addCookie(Utils.generateCookie(jwtToken, jwtExpireMs, "/"));
 
         //security alert
@@ -185,7 +185,7 @@ public class UserController {
         if( !(userModel.getUsername().equals(loginRequestDto.getUsernameEmail()) || userModel.getEmail().equals(loginRequestDto.getUsernameEmail())) || !passwordEncoder.matches(loginRequestDto.getPassword(), userModel.getPassword())){
             throw new ApiException(HttpStatus.UNAUTHORIZED,"Invalid username/email/password.");
         }
-        final String jwtToken=jwtService.generateJwtToken(userModel.getId(),jwtExpireMs,jwtSecret);
+        final String jwtToken=jwtService.generateJwtToken(UserModel.toDto(userModel),jwtExpireMs,jwtSecret);
         final var cookie=Utils.generateCookie(jwtToken, jwtExpireMs, "/");
         httpResponse.addCookie(cookie);
 
@@ -212,7 +212,7 @@ public class UserController {
                 }else if(user.isLocked()) throw new ApiException(HttpStatus.BAD_REQUEST,"Account suspended");
                 else if(!user.isEnabled()) throw new ApiException(HttpStatus.BAD_REQUEST,"Account not verified");
 
-                final String jwtToken=jwtService.generateJwtToken(user.getId(),jwtExpireMs,jwtSecret);
+                final String jwtToken=jwtService.generateJwtToken(UserModel.toDto(user),jwtExpireMs,jwtSecret);
                 final var cookie=Utils.generateCookie(jwtToken, jwtExpireMs, "/");
                 httpResponse.addCookie(cookie);
                 return ResponseEntity.ok(Map.of("success",true,"data",UserModel.toDto(user),"message","login success"));
@@ -251,7 +251,7 @@ public class UserController {
                 return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("success",true,"message","check your email to verify account."));
             }
 
-            final String jwtToken=jwtService.generateJwtToken(user.getId(),jwtExpireMs,jwtSecret);
+            final String jwtToken=jwtService.generateJwtToken(UserModel.toDto(user),jwtExpireMs,jwtSecret);
             final var cookie=Utils.generateCookie(jwtToken, jwtExpireMs, "/");
             httpResponse.addCookie(cookie);
             return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("success",true,"data",UserModel.toDto(user),"message","login success"));
@@ -346,6 +346,14 @@ public class UserController {
 
         activeUnusedToken.setStatus(TokenStatus.USED);
         verificationTokenRepository.save(activeUnusedToken);
+
+        return ResponseEntity.ok("Verification success!");
+    }
+    @PostMapping(path = "jwt/verify")
+    public ResponseEntity<String> verifyJwtToken(HttpServletRequest httpServletRequest) throws ApiException {
+        final var token=jwtService.getTokenFromRequest(httpServletRequest);
+        final var claims=jwtService.getClaims(token,jwtSecret);
+        final var user=userRepository.findOne(UserSpecifications.activeUserById(claims.getSubject()));
 
         return ResponseEntity.ok("Verification success!");
     }

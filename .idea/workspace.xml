@@ -4,17 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99cf0004-4955-45d8-a2de-baf56b0864c5" name="Changes" comment="added api-gateway">
+    <list default="true" id="99cf0004-4955-45d8-a2de-baf56b0864c5" name="Changes" comment="added app-service">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Dto/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Dto/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Entity/user/UserModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/commons/Pageable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/configuration/AopConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/configuration/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/configuration/WebClientConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/enums/AccountType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/exceptions/ApiException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/exceptions/CustomAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/exceptions/CustomAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/exceptions/UserAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/exceptions/handler/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/security/filters/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/utils/IdGenerators.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/AppServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/AppServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/controllers/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/controllers/AppController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery-server/src/test/java/com/vi5hnu/AppTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery-server/src/test/java/com/vi5hnu/discover_server/DiscoverServerApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/security/filters/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/security/filters/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/services/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/services/JwtService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +68,7 @@
     "Application.AuthServiceApplication.executor": "Run",
     "Application.DiscoverServerApplication.executor": "Run",
     "Application.NotificationServiceApplication.executor": "Run",
-    "Application.app-service.executor": "Run",
+    "Application.app-service.executor": "Debug",
     "Downloaded.Files.Path.Enabled": "false",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "Maven.api-gateway [clean].executor": "Run",
@@ -76,6 +90,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "kafka",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/vishnukumar/Downloads/shakti-service/app-service/src/main/java/com/vi5hnu/app_service",
@@ -97,11 +112,11 @@
       <recent name="$PROJECT_DIR$/auth-service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.vi5hnu.app_service.services" />
       <recent name="com.vi5hnu.auth_service.Dto" />
       <recent name="com.vi5hnu.auth_service.specifications" />
       <recent name="com.vi5hnu.auth_service.services.user" />
       <recent name="com.vi5hnu.auth_service.events.listeners" />
-      <recent name="com.vi5hnu.auth_service.events.authEvents" />
     </key>
   </component>
   <component name="RunManager" selected="Application.app-service">
@@ -215,14 +230,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737026542737</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added app-service">
+      <option name="closed" value="true" />
+      <created>1737036541963</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1737036541963</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added auth" />
     <MESSAGE value="added google login" />
     <MESSAGE value="added api-gateway" />
-    <option name="LAST_COMMIT_MESSAGE" value="added api-gateway" />
+    <MESSAGE value="added app-service" />
+    <option name="LAST_COMMIT_MESSAGE" value="added app-service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -259,6 +283,21 @@
           <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
           <line>69</line>
           <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/security/filters/JwtAuthenticationFilter.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
+          <line>353</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/security/filters/JwtAuthenticationFilter.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
