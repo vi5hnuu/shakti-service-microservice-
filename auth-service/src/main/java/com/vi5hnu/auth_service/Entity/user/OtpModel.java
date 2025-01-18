@@ -3,6 +3,8 @@ package com.vi5hnu.auth_service.Entity.user;
 import com.vi5hnu.auth_service.constants.Constants;
 import com.vi5hnu.auth_service.enums.OtpReason;
 import com.vi5hnu.auth_service.enums.OtpStatus;
+import com.vi5hnu.auth_service.security.RequestContext;
+import com.vi5hnu.auth_service.security.filters.RequestInfoFilter;
 import com.vi5hnu.auth_service.utils.IdGenerators;
 import jakarta.persistence.*;
 import lombok.*;
@@ -34,6 +36,12 @@ public class OtpModel {
     @Column(name = "expire_at", nullable = false,updatable = false)
     private Timestamp expireAt;
 
+    @Column(name = "ip_address", nullable = false,updatable = false)
+    private String ipAddress;
+
+    @Column(name = "user_agent", nullable = false,updatable = false)
+    private String userAgent;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     @Builder.Default()
@@ -54,6 +62,8 @@ public class OtpModel {
     @PrePersist()
     private void beforeSave(){
         if(getId()==null) setId(IdGenerators.generateIdWithPrefix(Constants.OTP_ID_PREFIX));
+        if(ipAddress==null) setIpAddress(RequestContext.getIpAddress());
+        if(userAgent==null) setIpAddress(RequestContext.getUserAgent());
     }
 
 }

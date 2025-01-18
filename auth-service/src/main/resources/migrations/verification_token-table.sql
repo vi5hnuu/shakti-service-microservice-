@@ -7,7 +7,8 @@ CREATE TABLE verification_token (
     expire_at TIMESTAMP NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-
+    ip_address VARCHAR(45) NOT NULL, -- Stores the IP address (IPv4 or IPv6)
+    user_agent VARCHAR(255) NOT NULL, -- Stores the user agent
     -- Index for OTP and user_id
     INDEX idx_token_user (token, user_id),
 

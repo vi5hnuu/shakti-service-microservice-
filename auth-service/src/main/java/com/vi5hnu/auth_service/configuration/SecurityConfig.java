@@ -3,6 +3,9 @@ package com.vi5hnu.auth_service.configuration;
 import com.vi5hnu.auth_service.exceptions.CustomAccessDeniedHandler;
 import com.vi5hnu.auth_service.exceptions.CustomAuthenticationEntryPoint;
 import com.vi5hnu.auth_service.security.filters.JwtAuthenticationFilter;
+import com.vi5hnu.auth_service.security.filters.RequestInfoFilter;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -14,15 +17,17 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.context.request.RequestContextHolder;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final CustomAccessDeniedHandler customAccessDeniedHandler;
     private final CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
-
+    private final RequestInfoFilter requestInfoFilter; // Add the filter here
     public static final String[] ENDPOINTS_WHITELIST = {
             "/api/v1/users/register",
             "/api/v1/users/verify",
@@ -34,14 +39,6 @@ public class SecurityConfig {
             "/api/v1/users/reset-password",
             "/swagger-ui/index.html"
     };
-
-    public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter,
-                          CustomAccessDeniedHandler customAccessDeniedHandler,
-                          CustomAuthenticationEntryPoint customAuthenticationEntryPoint) {
-        this.jwtAuthenticationFilter = jwtAuthenticationFilter;
-        this.customAccessDeniedHandler = customAccessDeniedHandler;
-        this.customAuthenticationEntryPoint = customAuthenticationEntryPoint;
-    }
 
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -62,5 +59,4 @@ public class SecurityConfig {
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
-
 }

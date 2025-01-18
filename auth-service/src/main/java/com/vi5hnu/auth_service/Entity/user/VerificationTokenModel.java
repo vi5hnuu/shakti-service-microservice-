@@ -3,6 +3,7 @@ package com.vi5hnu.auth_service.Entity.user;
 import com.vi5hnu.auth_service.constants.Constants;
 import com.vi5hnu.auth_service.enums.TokenReason;
 import com.vi5hnu.auth_service.enums.TokenStatus;
+import com.vi5hnu.auth_service.security.RequestContext;
 import com.vi5hnu.auth_service.utils.IdGenerators;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -53,12 +54,16 @@ public class VerificationTokenModel {
     @UpdateTimestamp
     private Timestamp updatedAt;
 
-    public VerificationTokenModel(String userId,String token,TokenReason reason){
-        this(null,userId,token,null,reason,null,null,null);
-    }
+    @Column(name = "ip_address", nullable = false,updatable = false)
+    private String ipAddress;
+
+    @Column(name = "user_agent", nullable = false,updatable = false)
+    private String userAgent;
 
     @PrePersist()
     private void beforeSave(){
         if(getId()==null) setId(IdGenerators.generateIdWithPrefix(Constants.VERIFICATION_TOKEN_ID_PREFIX));
+        if(ipAddress==null) setIpAddress(RequestContext.getIpAddress());
+        if(userAgent==null) setUserAgent(RequestContext.getUserAgent());
     }
 }

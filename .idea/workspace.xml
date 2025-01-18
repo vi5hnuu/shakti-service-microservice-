@@ -5,9 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99cf0004-4955-45d8-a2de-baf56b0864c5" name="Changes" comment="jwt security added to app-service">
+      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/security/RequestContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/security/filters/RequestInfoFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/vi5hnu/notification_service/configurations/SchedulerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/vi5hnu/notification_service/processors/EmailNotificationProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/security/filters/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/security/filters/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Entity/user/OtpModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Entity/user/OtpModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Entity/user/VerificationTokenModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Entity/user/VerificationTokenModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/configuration/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/specifications/UserSpecifications.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/specifications/UserSpecifications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/security/filters/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/security/filters/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/resources/migrations/otp-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/resources/migrations/otp-table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/resources/migrations/verification_token-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/resources/migrations/verification_token-table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/vi5hnu/notification_service/NotificationServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/vi5hnu/notification_service/NotificationServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,9 +56,9 @@
   "keyToString": {
     "Application.ApiGatewayApplication.executor": "Run",
     "Application.AppServiceApplication.executor": "Debug",
-    "Application.AuthServiceApplication.executor": "Run",
+    "Application.AuthServiceApplication.executor": "Debug",
     "Application.DiscoverServerApplication.executor": "Run",
-    "Application.NotificationServiceApplication.executor": "Run",
+    "Application.NotificationServiceApplication.executor": "Debug",
     "Application.app-service.executor": "Debug",
     "Downloaded.Files.Path.Enabled": "false",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
@@ -91,14 +103,14 @@
       <recent name="$PROJECT_DIR$/auth-service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.vi5hnu.notification_service.models" />
+      <recent name="com.vi5hnu.notification_service.processors" />
       <recent name="com.vi5hnu.app_service.services" />
       <recent name="com.vi5hnu.auth_service.Dto" />
       <recent name="com.vi5hnu.auth_service.specifications" />
-      <recent name="com.vi5hnu.auth_service.services.user" />
-      <recent name="com.vi5hnu.auth_service.events.listeners" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.app-service">
+  <component name="RunManager" selected="Application.AuthServiceApplication">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.vi5hnu.api_gateway.ApiGatewayApplication" />
       <module name="api-gateway" />
@@ -170,9 +182,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.NotificationServiceApplication" />
         <item itemvalue="Application.ApiGatewayApplication" />
         <item itemvalue="Application.DiscoverServerApplication" />
-        <item itemvalue="Application.NotificationServiceApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -225,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737137950197</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="jwt security added to app-service">
+      <option name="closed" value="true" />
+      <created>1737138534837</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1737138534837</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -246,7 +266,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
-          <line>121</line>
+          <line>118</line>
           <properties>
             <option name="lambda-ordinal" value="-1" />
           </properties>
@@ -254,12 +274,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
-          <line>115</line>
+          <line>112</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
-          <line>199</line>
+          <line>196</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -269,23 +289,36 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
-          <line>69</line>
+          <line>66</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/security/filters/JwtAuthenticationFilter.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
-          <line>353</line>
+          <line>350</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/security/filters/JwtAuthenticationFilter.java</url>
           <line>37</line>
           <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/security/filters/RequestInfoFilter.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/security/filters/JwtAuthenticationFilter.java</url>
+          <line>59</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
+          <line>276</line>
+          <option name="timeStamp" value="60" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

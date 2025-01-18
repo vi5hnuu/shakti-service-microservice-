@@ -1,6 +1,5 @@
 package com.vi5hnu.auth_service.controller.auth;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vi5hnu.auth_service.Dto.*;
 import com.vi5hnu.auth_service.Dto.user.UserDto;
 import com.vi5hnu.auth_service.Entity.user.OtpModel;
@@ -32,7 +31,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -62,7 +60,6 @@ public class UserController {
     private final ApplicationEventPublisher publisher;
     private final GoogleService googleService;
     private final JwtService jwtService;
-    private final ObjectMapper objectMapper;
     private final KafkaNotificationPublisherService kafkaNotificationPublisherService;
 
     @GetMapping(path = "test")
