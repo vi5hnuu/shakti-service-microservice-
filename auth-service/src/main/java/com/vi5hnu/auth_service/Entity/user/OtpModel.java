@@ -63,7 +63,7 @@ public class OtpModel {
     private void beforeSave(){
         if(getId()==null) setId(IdGenerators.generateIdWithPrefix(Constants.OTP_ID_PREFIX));
         if(ipAddress==null) setIpAddress(RequestContext.getIpAddress());
-        if(userAgent==null) setIpAddress(RequestContext.getUserAgent());
+        if(userAgent==null) setUserAgent(RequestContext.getUserAgent());
     }
 
 }

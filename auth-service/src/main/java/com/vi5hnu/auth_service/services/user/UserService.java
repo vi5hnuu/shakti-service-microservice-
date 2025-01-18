@@ -89,8 +89,8 @@ public class UserService{
 
     
     public UserModel createUser(RegisterRequestDto registerRequestDto) throws UserAlreadyExistsException, ApiException {
-        final var exUser = userRepository.existsByUsernameOrEmail(registerRequestDto.getUserName(),registerRequestDto.getEmail());
-        if(exUser) throw new ApiException(HttpStatus.BAD_REQUEST,"Username/email already exists");
+        final var exUser = userRepository.findOne(UserSpecifications.activeUserByUsernameOrEmail(registerRequestDto.getUserName(),registerRequestDto.getEmail(),null,null,false)).orElse(null);
+        if(exUser!=null) throw new ApiException(HttpStatus.BAD_REQUEST,"Username/email already exists");
 
         final UserModel userModel= UserModel.builder()
                 .accountType(AccountType.MANUAL)

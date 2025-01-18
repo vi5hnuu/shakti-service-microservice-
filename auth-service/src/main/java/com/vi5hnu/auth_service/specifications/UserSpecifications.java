@@ -71,21 +71,25 @@ public class UserSpecifications {
             return criteriaBuilder.and(userPredicate,isNotDeletedPredicate,isEnabledPredicate,isNotLockedPredicate);
         };
     }
-    public static Specification<UserModel> activeUserByUsernameOrEmail(String username,String email) {
+    public static Specification<UserModel> activeUserByUsernameOrEmail(String username,String email,Boolean isEnabled,Boolean isLocked,Boolean isDeleted) {
         return (root, query, criteriaBuilder) -> {
             assert query != null && (username!=null || email!=null);
             // Build predicates
-            Predicate usernamePredicate = username!=null ? criteriaBuilder.equal(root.get("username"), username) : null;
-            Predicate useremailPredicate = email!=null ? criteriaBuilder.equal(root.get("email"), email) : null;
-            Predicate isNotDeletedPredicate = criteriaBuilder.equal(root.get("isDeleted"), false);
-            Predicate isNotLockedPredicate = criteriaBuilder.equal(root.get("isLocked"), false);
-            Predicate isEnabledPredicate = criteriaBuilder.equal(root.get("isEnabled"), true);
+            final ArrayList<Predicate> predicates=new ArrayList<>();
 
-            if(useremailPredicate!=null && usernamePredicate!=null){
-                return criteriaBuilder.and(criteriaBuilder.or(useremailPredicate,usernamePredicate),isNotDeletedPredicate,isNotLockedPredicate,isEnabledPredicate);
-            }else{
-                return criteriaBuilder.and(useremailPredicate!=null ? useremailPredicate : usernamePredicate,isNotDeletedPredicate,isNotLockedPredicate,isEnabledPredicate);
-            }
+            final var usernamePredicate=username!=null ? criteriaBuilder.equal(root.get("username"), username) : null;
+            final var emailPredicate=email!=null ? criteriaBuilder.equal(root.get("email"), email) : null;
+
+            if(username!=null && email!=null){
+              predicates.add(criteriaBuilder.or(usernamePredicate,emailPredicate));
+            }else if(username!=null) predicates.add(usernamePredicate);
+            if(email!=null) predicates.add(emailPredicate);
+            if(isDeleted!=null) predicates.add(criteriaBuilder.equal(root.get("isDeleted"), isDeleted));
+            if(isEnabled!=null) predicates.add(criteriaBuilder.equal(root.get("isEnabled"), isEnabled));
+            if(isLocked!=null) predicates.add(criteriaBuilder.equal(root.get("isLocked"), isLocked));
+
+
+            return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
         };
     }
     public static Specification<UserModel> activeUserByUsernameOrEmail(@NonNull String usernameEmail,Boolean isEnabled,Boolean isLocked,Boolean isDeleted) {

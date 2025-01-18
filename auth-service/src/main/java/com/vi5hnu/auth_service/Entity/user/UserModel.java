@@ -58,7 +58,7 @@ public class UserModel {
 
     @Column(name = "is_deleted")
     @Builder.Default()
-    private boolean isDeleted=false; //is verified or not
+    private boolean isDeleted=false; //deleted user cannot be re-activated [new account is possible - new entry]
 
     @CreationTimestamp
     @Column(name = "created_at") private Timestamp createdAt;
