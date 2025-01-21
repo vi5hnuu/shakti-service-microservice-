@@ -4,15 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99cf0004-4955-45d8-a2de-baf56b0864c5" name="Changes" comment="added ipaddress and useragent in otp">
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/vi5hnu/notification_service/configurations/SchedulerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/vi5hnu/notification_service/processors/EmailNotificationProcessor.java" afterDir="false" />
+    <list default="true" id="99cf0004-4955-45d8-a2de-baf56b0864c5" name="Changes" comment="added fixes in auth-service : deleted user will never be re-activated instead new account [new entry] will be created">
+      <change afterPath="$PROJECT_DIR$/api-gateway/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discovery-server/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql/init.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Entity/user/OtpModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Entity/user/OtpModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Entity/user/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Entity/user/UserModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Dto/UpdatePasswordInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Dto/UpdatePasswordInit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Dto/user/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Dto/user/UserDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Entity/user/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Entity/user/UserModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/services/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/services/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/specifications/UserSpecifications.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/specifications/UserSpecifications.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/vi5hnu/notification_service/NotificationServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/vi5hnu/notification_service/NotificationServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/services/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/services/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/kafka-docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notification-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,10 +67,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.ApiGatewayApplication.executor": "Run",
+    "Application.ApiGatewayApplication.executor": "Debug",
     "Application.AppServiceApplication.executor": "Debug",
     "Application.AuthServiceApplication.executor": "Debug",
-    "Application.DiscoverServerApplication.executor": "Run",
+    "Application.DiscoverServerApplication.executor": "Debug",
     "Application.NotificationServiceApplication.executor": "Debug",
     "Application.app-service.executor": "Debug",
     "Downloaded.Files.Path.Enabled": "false",
@@ -78,7 +97,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "kafka",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/vishnukumar/Downloads/shakti-service/app-service/src/main/java/com/vi5hnu/app_service",
+    "last_opened_file_path": "/Users/vishnukumar/Downloads/shakti-service/notification-service",
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -87,13 +106,16 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service" />
-      <recent name="$PROJECT_DIR$/discovery-server" />
-      <recent name="$PROJECT_DIR$/api-gateway" />
       <recent name="$PROJECT_DIR$/notification-service" />
-      <recent name="$PROJECT_DIR$/auth-service/src/main/resources/migrations" />
+      <recent name="$PROJECT_DIR$/discovery-server" />
+      <recent name="$PROJECT_DIR$/auth-service" />
+      <recent name="$PROJECT_DIR$/app-service" />
+      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mysql" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/api-gateway" />
       <recent name="$PROJECT_DIR$/auth-service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -104,7 +126,7 @@
       <recent name="com.vi5hnu.auth_service.specifications" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AuthServiceApplication">
+  <component name="RunManager" selected="Application.ApiGatewayApplication">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.vi5hnu.api_gateway.ApiGatewayApplication" />
       <module name="api-gateway" />
@@ -161,6 +183,10 @@
       </method>
     </configuration>
     <configuration name="app-service" type="Application" factoryName="Application" singleton="false">
+      <envs>
+        <env name="MYSQL_USERNAME" value="root" />
+        <env name="MYSQL_PASSWORD" value="pass" />
+      </envs>
       <option name="MAIN_CLASS_NAME" value="com.vi5hnu.app_service.AppServiceApplication" />
       <module name="app-service" />
       <method v="2">
@@ -176,9 +202,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DiscoverServerApplication" />
-        <item itemvalue="Application.NotificationServiceApplication" />
         <item itemvalue="Application.ApiGatewayApplication" />
+        <item itemvalue="Application.NotificationServiceApplication" />
+        <item itemvalue="Application.DiscoverServerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -247,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737193461205</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added fixes in auth-service : deleted user will never be re-activated instead new account [new entry] will be created">
+      <option name="closed" value="true" />
+      <created>1737210760944</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1737210760944</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -257,7 +291,8 @@
     <MESSAGE value="added app-service" />
     <MESSAGE value="jwt security added to app-service" />
     <MESSAGE value="added ipaddress and useragent in otp" />
-    <option name="LAST_COMMIT_MESSAGE" value="added ipaddress and useragent in otp" />
+    <MESSAGE value="added fixes in auth-service : deleted user will never be re-activated instead new account [new entry] will be created" />
+    <option name="LAST_COMMIT_MESSAGE" value="added fixes in auth-service : deleted user will never be re-activated instead new account [new entry] will be created" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -281,11 +316,6 @@
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
-          <line>196</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/notification-service/src/main/java/com/vi5hnu/notification_service/services/KafkaNotificationConsumerService.java</url>
           <line>11</line>
           <option name="timeStamp" value="36" />
@@ -299,24 +329,6 @@
           <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
           <line>350</line>
           <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/security/filters/JwtAuthenticationFilter.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/security/filters/RequestInfoFilter.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/security/filters/JwtAuthenticationFilter.java</url>
-          <line>59</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>

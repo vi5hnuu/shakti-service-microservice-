@@ -99,4 +99,7 @@
             <artifactId>jakarta.mail</artifactId>
         </dependency>
     </dependencies>
+    <build>
+        <finalName>app-service</finalName>
+    </build>
 </project>

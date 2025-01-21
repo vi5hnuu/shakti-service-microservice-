@@ -31,4 +31,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<build>
+		<finalName>api-gateway-service</finalName>
+	</build>
 </project>

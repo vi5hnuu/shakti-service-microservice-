@@ -34,7 +34,7 @@ public class SecurityConfig {
             "/api/v1/users/re-verify",
             "/api/v1/users/jwt/verify",
             "/api/v1/users/login",
-            "/api/v1/users/google/login",
+            "/api/v1/users/login/google",
             "/api/v1/users/forgot-password",
             "/api/v1/users/reset-password",
             "/swagger-ui/index.html"

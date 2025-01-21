@@ -76,7 +76,8 @@ public class UserModel {
                 .isDeleted(userModel.isDeleted())
                 .createdAt(userModel.getCreatedAt())
                 .updatedAt(userModel.getUpdatedAt())
-                .password_updatedAt(userModel.getPasswordUpdatedAt())
+                .passwordUpdatedAt(userModel.getPasswordUpdatedAt())
+                .profileUrl(userModel.getProfileUrl())
                 .roles(userModel.getRoles())
                 .build();
     }

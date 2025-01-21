@@ -248,10 +248,10 @@ public class UserController {
                 return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("success",true,"message","check your email to verify account."));
             }
 
-            final String jwtToken=jwtService.generateJwtToken(UserModel.toDto(user),jwtExpireMs,jwtSecret);
+            final String jwtToken=jwtService.generateJwtToken(UserModel.toDto(savedUser),jwtExpireMs,jwtSecret);
             final var cookie=Utils.generateCookie(jwtToken, jwtExpireMs, "/");
             httpResponse.addCookie(cookie);
-            return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("success",true,"data",UserModel.toDto(user),"message","login success"));
+            return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("success",true,"data",UserModel.toDto(savedUser),"message","login success"));
         }catch (SignatureException e){
             return ResponseEntity.badRequest().body(Map.of("success",false,"message","invalid/expired token."));
         }

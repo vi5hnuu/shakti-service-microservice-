@@ -6,5 +6,5 @@ import lombok.Getter;
 
 @Getter
 public class UpdatePasswordInit {
-    @NotBlank(message = "userId cannot be blank") private String usernameEmail;
+    @NotBlank(message = "username/email cannot be blank") private String usernameEmail;
 }

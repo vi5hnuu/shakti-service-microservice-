@@ -15,6 +15,7 @@ public class UserDto {
     private String id;
     private AccountType accountType;
     private String firstName;
+    private String profileUrl;
     private String lastName;
     private String username;
     private String email;
@@ -29,6 +30,6 @@ public class UserDto {
     private boolean isDeleted=false;
     private Timestamp createdAt;
     private Timestamp updatedAt;
-    private Timestamp password_updatedAt;
+    private Timestamp passwordUpdatedAt;
     private Set<UserRole> roles;
 }

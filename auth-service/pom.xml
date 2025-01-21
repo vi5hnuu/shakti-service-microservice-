@@ -126,4 +126,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <build>
+        <finalName>auth-service</finalName>
+    </build>
 </project>

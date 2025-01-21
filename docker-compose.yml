@@ -1,0 +1,126 @@
+services:
+  api-gateway:
+#    restart: always
+    image: api-gateway:1.0
+    environment:
+      EUREKA_SERVER: discovery-service
+    build:
+      context: .
+      dockerfile: ./api-gateway/Dockerfile
+    ports:
+      - "9099:9099"  # Expose only the API Gateway
+    networks:
+      - shakti-network
+    depends_on:
+      - auth-service
+      - notification-service
+      - app-service
+      - discovery-service
+
+  auth-service:
+#    restart: always
+    image: auth-service:1.0
+    environment:
+      google.clientIds: 525806918024-v4i822juqija1dfpeu15k4rvjgk5195e.apps.googleusercontent.com,525806918024-99qjrvparkvu98eo5i47h0tsq1uh33oe.apps.googleusercontent.com
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: pass
+      MYSQL_HOST: shakti-mysql
+      EUREKA_SERVER: DISCOVERY-SERVICE
+      KAFKA_HOST: kafka-broker
+    build:
+      context: .
+      dockerfile: ./auth-service/Dockerfile
+    depends_on:
+      - shakti-mysql
+    networks:
+      - shakti-network
+
+  notification-service:
+#    restart: always
+    image: notification-service:1.0
+    environment:
+      MYSQL_HOST: shakti-mysql
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: pass
+      EUREKA_SERVER: discovery-service
+      KAFKA_HOST: kafka-broker
+    build:
+      context: .
+      dockerfile: ./notification-service/Dockerfile
+    depends_on:
+      - shakti-mysql
+    networks:
+      - shakti-network
+
+  app-service:
+#    restart: always
+    image: app-service:1.0
+    environment:
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: pass
+      MYSQL_HOST: shakti-mysql
+      EUREKA_SERVER: discovery-service
+    build:
+      context: .
+      dockerfile: ./app-service/Dockerfile
+    depends_on:
+      - shakti-mysql
+    networks:
+      - shakti-network
+
+  discovery-service:
+#    restart: always
+    image: discovery-service:1.0
+    environment:
+      EUREKA_SERVER: discovery-service
+    build:
+      context: .
+      dockerfile: ./discovery-server/Dockerfile
+    ports:
+      - "8761:8761"  # Expose only the API Gateway
+    networks:
+      - shakti-network
+
+  broker:
+#    restart: always
+    image: apache/kafka:latest
+    hostname: broker
+    ports:
+      - 9092:9092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://broker:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_NODE_ID: 1
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@broker:29093
+      KAFKA_LISTENERS: PLAINTEXT://broker:29092,CONTROLLER://broker:29093,PLAINTEXT_HOST://0.0.0.0:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LOG_DIRS: /tmp/kraft-combined-logs
+      CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qk
+    networks:
+      - shakti-network
+
+  shakti-mysql:
+#    restart: always
+    image: mysql:9.1.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql:/docker-entrypoint-initdb.d/
+    networks:
+      - shakti-network
+
+networks:
+  shakti-network:
+    driver: bridge
+volumes:
+  mysql_data:

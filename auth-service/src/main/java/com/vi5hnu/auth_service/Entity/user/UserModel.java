@@ -1,6 +1,5 @@
 package com.vi5hnu.auth_service.Entity.user;
 
-import com.google.gson.JsonObject;
 import com.vi5hnu.auth_service.Dto.UserRole;
 import com.vi5hnu.auth_service.Dto.user.UserDto;
 import com.vi5hnu.auth_service.constants.Constants;
@@ -10,12 +9,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.type.SqlTypes;
-import org.springframework.data.repository.init.ResourceReader;
 
-import java.sql.SQLType;
 import java.sql.Timestamp;
 import java.util.Set;
 
@@ -74,6 +70,7 @@ public class UserModel {
                 .id(userModel.getId())
                 .accountType(userModel.getAccountType())
                 .firstName(userModel.getFirstName())
+                .profileUrl(userModel.getProfileUrl())
                 .lastName(userModel.getLastName())
                 .username(userModel.getUsername())
                 .email(userModel.getEmail())
@@ -82,7 +79,7 @@ public class UserModel {
                 .isDeleted(userModel.isDeleted())
                 .createdAt(userModel.getCreatedAt())
                 .updatedAt(userModel.getUpdatedAt())
-                .password_updatedAt(userModel.getPasswordUpdatedAt())
+                .passwordUpdatedAt(userModel.getPasswordUpdatedAt())
                 .roles(userModel.getRoles())
                 .build();
     }

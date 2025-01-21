@@ -64,7 +64,7 @@ public class JwtService {
     public String getTokenFromRequest(HttpServletRequest request){
         final List<Cookie> matchedCookies=request.getCookies()==null ? Collections.emptyList() : Arrays.stream(request.getCookies()).filter(ck->ck.getName().equals("jwt")).toList();
         String token= matchedCookies.isEmpty() ? null : matchedCookies.get(0).getValue();
-        if(token!=null) return token;
+        if(token!=null && !token.isEmpty()) return token;
 
         String bearerTokenRaw=request.getHeader("Authorization");
         if(bearerTokenRaw==null || !bearerTokenRaw.startsWith("Bearer")){return null;}
