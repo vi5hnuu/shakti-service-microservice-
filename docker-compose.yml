@@ -1,8 +1,9 @@
 services:
   api-gateway:
-#    restart: always
+    restart: always
     image: api-gateway:1.0
     environment:
+      EUREKA_CLIENT: api-gateway
       EUREKA_SERVER: discovery-service
     build:
       context: .
@@ -18,14 +19,15 @@ services:
       - discovery-service
 
   auth-service:
-#    restart: always
+    restart: always
     image: auth-service:1.0
     environment:
       google.clientIds: 525806918024-v4i822juqija1dfpeu15k4rvjgk5195e.apps.googleusercontent.com,525806918024-99qjrvparkvu98eo5i47h0tsq1uh33oe.apps.googleusercontent.com
       MYSQL_USERNAME: root
       MYSQL_PASSWORD: pass
       MYSQL_HOST: shakti-mysql
-      EUREKA_SERVER: DISCOVERY-SERVICE
+      EUREKA_CLIENT: auth-service
+      EUREKA_SERVER: discovery-service
       KAFKA_HOST: kafka-broker
     build:
       context: .
@@ -42,6 +44,7 @@ services:
       MYSQL_HOST: shakti-mysql
       MYSQL_USERNAME: root
       MYSQL_PASSWORD: pass
+      EUREKA_CLIENT: notification-service
       EUREKA_SERVER: discovery-service
       KAFKA_HOST: kafka-broker
     build:
@@ -53,12 +56,13 @@ services:
       - shakti-network
 
   app-service:
-#    restart: always
+    restart: always
     image: app-service:1.0
     environment:
       MYSQL_USERNAME: root
       MYSQL_PASSWORD: pass
       MYSQL_HOST: shakti-mysql
+      EUREKA_CLIENT: app-service
       EUREKA_SERVER: discovery-service
     build:
       context: .
@@ -69,10 +73,8 @@ services:
       - shakti-network
 
   discovery-service:
-#    restart: always
+    restart: always
     image: discovery-service:1.0
-    environment:
-      EUREKA_SERVER: discovery-service
     build:
       context: .
       dockerfile: ./discovery-server/Dockerfile
@@ -81,8 +83,8 @@ services:
     networks:
       - shakti-network
 
-  broker:
-#    restart: always
+  kafka-broker:
+    restart: always
     image: apache/kafka:latest
     hostname: broker
     ports:
@@ -107,7 +109,7 @@ services:
       - shakti-network
 
   shakti-mysql:
-#    restart: always
+    restart: always
     image: mysql:9.1.0
     ports:
       - "3306:3306"
