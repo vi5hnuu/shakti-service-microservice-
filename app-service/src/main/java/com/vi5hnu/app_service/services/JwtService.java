@@ -21,10 +21,15 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class JwtService {
     @Value("${auth.service.url}") String authServiceUrl;
-    private final WebClient webClient;
+    private final WebClient.Builder webClientBuilder;
+    WebClient webClient;
+
+    public JwtService(WebClient.Builder webClientBuilder) {
+        this.webClientBuilder = webClientBuilder;
+        this.webClient=this.webClientBuilder.build();
+    }
 
     public Claims getClaims(String token,Key jwtSecret){
         return Jwts.parserBuilder()
@@ -60,7 +65,7 @@ public class JwtService {
     public boolean verifyToken(String token) {
         try {
             webClient.post()
-                    .uri(authServiceUrl + "/jwt/verify")
+                    .uri(authServiceUrl + "/jwt/verify") // Load-balanced service call
                     .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
                     .retrieve()
                     .onStatus(HttpStatusCode::isError, clientResponse -> {
@@ -69,7 +74,6 @@ public class JwtService {
                     })
                     .bodyToMono(Void.class) // No need to map the body if we're only interested in the status
                     .block(); // Block for a response
-
             return true; // If we reach here, the response was 2xx
         } catch (Exception e) {
             // Log the exception or handle it as needed

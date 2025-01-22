@@ -4,14 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99cf0004-4955-45d8-a2de-baf56b0864c5" name="Changes" comment="docker setup">
+    <list default="true" id="99cf0004-4955-45d8-a2de-baf56b0864c5" name="Changes" comment="dockerization done">
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Dto/AartiDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Entity/user/AartiModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/AartiRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/AartiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/resources/migrations/aarti-table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql/aartis.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/configuration/WebClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/configuration/WebClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/controllers/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/controllers/AartiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/JwtService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,11 +103,11 @@
       <recent name="$PROJECT_DIR$/auth-service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.vi5hnu.app_service.services" />
+      <recent name="com.vi5hnu.app_service.Dto" />
+      <recent name="com.vi5hnu.app_service.Entity.user" />
       <recent name="com.vi5hnu.notification_service.models" />
       <recent name="com.vi5hnu.notification_service.processors" />
-      <recent name="com.vi5hnu.app_service.services" />
-      <recent name="com.vi5hnu.auth_service.Dto" />
-      <recent name="com.vi5hnu.auth_service.specifications" />
     </key>
   </component>
   <component name="RunManager" selected="Application.ApiGatewayApplication">
@@ -268,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737470033649</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="dockerization done">
+      <option name="closed" value="true" />
+      <created>1737473322281</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1737473322281</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -280,7 +293,8 @@
     <MESSAGE value="added ipaddress and useragent in otp" />
     <MESSAGE value="added fixes in auth-service : deleted user will never be re-activated instead new account [new entry] will be created" />
     <MESSAGE value="docker setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="docker setup" />
+    <MESSAGE value="dockerization done" />
+    <option name="LAST_COMMIT_MESSAGE" value="dockerization done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
