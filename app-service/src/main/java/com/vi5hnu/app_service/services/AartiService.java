@@ -3,6 +3,7 @@ package com.vi5hnu.app_service.services;
 import com.vi5hnu.app_service.Dto.AartiDto;
 import com.vi5hnu.app_service.Entity.user.AartiModel;
 import com.vi5hnu.app_service.exceptions.ApiException;
+import com.vi5hnu.app_service.services.repository.AartiRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

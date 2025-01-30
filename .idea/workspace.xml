@@ -4,19 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99cf0004-4955-45d8-a2de-baf56b0864c5" name="Changes" comment="dockerization done">
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Dto/AartiDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Entity/user/AartiModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/AartiRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/AartiService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/resources/migrations/aarti-table.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql/aartis.sql" afterDir="false" />
+    <list default="true" id="99cf0004-4955-45d8-a2de-baf56b0864c5" name="Changes" comment="added aartis">
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Dto/ReelCategoryDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Dto/ReelDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Entity/user/ReelCategoryModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Entity/user/ReelModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/commons/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/controllers/ReelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/ReelService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/repository/ReelCategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/repository/ReelRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-service/src/main/resources/migrations/reel-table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql/reels.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/configuration/WebClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/configuration/WebClientConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/controllers/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/controllers/AartiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/JwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/AartiRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/repository/AartiRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/AartiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/AartiService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,52 +52,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ApiGatewayApplication.executor": "Debug",
-    "Application.AppServiceApplication.executor": "Debug",
-    "Application.AuthServiceApplication.executor": "Debug",
-    "Application.DiscoverServerApplication.executor": "Debug",
-    "Application.NotificationServiceApplication.executor": "Debug",
-    "Application.app-service.executor": "Debug",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "Maven.api-gateway [clean].executor": "Run",
-    "Maven.api-gateway [install].executor": "Run",
-    "Maven.app-service [clean].executor": "Run",
-    "Maven.app-service [install].executor": "Run",
-    "Maven.auth-service [clean].executor": "Run",
-    "Maven.auth-service [install].executor": "Run",
-    "Maven.core-utilities [clean].executor": "Run",
-    "Maven.core-utilities [install].executor": "Run",
-    "Maven.core-utils [clean].executor": "Run",
-    "Maven.core-utils [install].executor": "Run",
-    "Maven.notification-service [clean].executor": "Run",
-    "Maven.notification-service [install].executor": "Run",
-    "Maven.shakti-service [clean].executor": "Run",
-    "Maven.shakti-service [install].executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "dockerization",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/vishnukumar/Downloads/shakti-service/notification-service",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.intentionPowerPack"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ApiGatewayApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.AppServiceApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.AuthServiceApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.DiscoverServerApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.NotificationServiceApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.app-service.executor&quot;: &quot;Debug&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.api-gateway [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.api-gateway [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.app-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.app-service [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.auth-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.auth-service [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.core-utilities [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.core-utilities [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.core-utils [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.core-utils [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.notification-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.notification-service [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.shakti-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.shakti-service [install].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/vishnukumar/Downloads/shakti-service/app-service/src/main/java/com/vi5hnu/app_service/Dto&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.intentionPowerPack&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Dto" />
+      <recent name="$PROJECT_DIR$/app-service/src/main/resources/migrations" />
       <recent name="$PROJECT_DIR$/notification-service" />
       <recent name="$PROJECT_DIR$/discovery-server" />
       <recent name="$PROJECT_DIR$/auth-service" />
-      <recent name="$PROJECT_DIR$/app-service" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/mysql" />
@@ -103,14 +106,14 @@
       <recent name="$PROJECT_DIR$/auth-service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.vi5hnu.app_service.services.repository" />
       <recent name="com.vi5hnu.app_service.services" />
-      <recent name="com.vi5hnu.app_service.Dto" />
       <recent name="com.vi5hnu.app_service.Entity.user" />
-      <recent name="com.vi5hnu.notification_service.models" />
-      <recent name="com.vi5hnu.notification_service.processors" />
+      <recent name="com.vi5hnu.app_service.controllers" />
+      <recent name="com.vi5hnu.app_service.Dto" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ApiGatewayApplication">
+  <component name="RunManager" selected="Application.app-service">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.vi5hnu.api_gateway.ApiGatewayApplication" />
       <module name="api-gateway" />
@@ -186,9 +189,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DiscoverServerApplication" />
         <item itemvalue="Application.ApiGatewayApplication" />
         <item itemvalue="Application.NotificationServiceApplication" />
-        <item itemvalue="Application.DiscoverServerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -329,20 +332,20 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
-          <line>350</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
           <line>276</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/Entity/user/OtpModel.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="61" />
+          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
+          <line>145</line>
+          <option name="timeStamp" value="62" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.springframework.data.domain.PageImpl" memberName="content" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
