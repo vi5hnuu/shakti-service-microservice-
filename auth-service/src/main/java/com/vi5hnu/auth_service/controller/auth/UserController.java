@@ -362,7 +362,7 @@ public class UserController {
     public ResponseEntity<Map<String,Object>> forgotPassword(@RequestBody @Valid ForgotPasswordRequestDto forgotPassword, HttpServletRequest httpServletRequest) throws ApiException {
         //check if such user exists
         final UserModel userModel=userService.findByUsernameOrEmail(forgotPassword.getUsernameEmail(),null,false,true).orElseThrow(()->new ApiException(HttpStatus.NOT_FOUND,String.format("user %s does not exists.",forgotPassword.getUsernameEmail())));
-
+        if(!userModel.getAccountType().equals(AccountType.MANUAL)) throw new ApiException(HttpStatus.FORBIDDEN,"Google account,cannot reset password");
         if(userModel.isLocked()) throw new ApiException(HttpStatus.FORBIDDEN,"Account suspended");
 
         final var otp=Utils.generateOtp();
