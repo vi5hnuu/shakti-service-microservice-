@@ -1,26 +1,36 @@
 services:
   - name: api-gateway
-    type: web
+    type: web  # API Gateway should be accessible via HTTP
     env: docker
     repo: https://github.com/vi5hnuu/shakti-service-microservice-
+    plan: standard
     dockerfilePath: ./api-gateway/Dockerfile
     envVars:
       - key: EUREKA_CLIENT
         value: api-gateway
       - key: EUREKA_SERVER
         value: discovery-service
-    plan: free
     healthCheckPath: /
-    autoDeploy: true
+    autoDeploy: false
 
-  - name: auth-service
-    type: web
+  - name: discovery-service
+    type: web  # Discovery service should be accessible by other services
     env: docker
     repo: https://github.com/vi5hnuu/shakti-service-microservice-
+    plan: standard
+    dockerfilePath: ./discovery-server/Dockerfile
+    envVars:
+      - key: PORT
+        value: 8761
+    autoDeploy: false
+
+  - name: auth-service
+    type: private-service  # Internal service (no external HTTP access)
+    env: docker
+    repo: https://github.com/vi5hnuu/shakti-service-microservice-
+    plan: standard
     dockerfilePath: ./auth-service/Dockerfile
     envVars:
-      - key: google.clientIds
-        value: 525806918024-v4i822juqija1dfpeu15k4rvjgk5195e.apps.googleusercontent.com,525806918024-99qjrvparkvu98eo5i47h0tsq1uh33oe.apps.googleusercontent.com
       - key: MYSQL_USERNAME
         value: root
       - key: MYSQL_PASSWORD
@@ -33,13 +43,13 @@ services:
         value: discovery-service
       - key: KAFKA_HOST
         value: kafka-broker
-    plan: free
-    autoDeploy: true
+    autoDeploy: false
 
   - name: notification-service
-    type: web
+    type: private-service
     env: docker
     repo: https://github.com/vi5hnuu/shakti-service-microservice-
+    plan: standard
     dockerfilePath: ./notification-service/Dockerfile
     envVars:
       - key: MYSQL_USERNAME
@@ -54,13 +64,13 @@ services:
         value: discovery-service
       - key: KAFKA_HOST
         value: kafka-broker
-    plan: free
-    autoDeploy: true
+    autoDeploy: false
 
   - name: app-service
-    type: web
+    type: private-service
     env: docker
     repo: https://github.com/vi5hnuu/shakti-service-microservice-
+    plan: standard
     dockerfilePath: ./app-service/Dockerfile
     envVars:
       - key: MYSQL_USERNAME
@@ -73,22 +83,23 @@ services:
         value: app-service
       - key: EUREKA_SERVER
         value: discovery-service
-    plan: free
-    autoDeploy: true
+    autoDeploy: false
 
-  - name: discovery-service
-    type: web
-    env: docker
-    repo: https://github.com/vi5hnuu/shakti-service-microservice-
-    dockerfilePath: ./discovery-server/Dockerfile
-    plan: free
-    healthCheckPath: /
-    autoDeploy: true
+  - name: shakti-mysql
+    type: database
+    plan: free  # Upgrade if needed
+    databaseName: shakti-db
+    user: root
+    envVars:
+      - key: MYSQL_ROOT_PASSWORD
+        value: pass
+    autoDeploy: false
 
   - name: kafka-broker
-    type: private-service
+    type: private-service  # Kafka should not be publicly accessible
     env: docker
     repo: https://github.com/vi5hnuu/shakti-service-microservice-
+    plan: standard
     dockerfilePath: ./kafka/Dockerfile
     envVars:
       - key: KAFKA_BROKER_ID
@@ -121,16 +132,4 @@ services:
         value: "/tmp/kraft-combined-logs"
       - key: CLUSTER_ID
         value: "MkU3OEVBNTcwNTJENDM2Qk"
-    plan: free
-    autoDeploy: true
-
-  - name: shakti-mysql
-    type: private-service
-    env: docker
-    repo: https://github.com/vi5hnuu/shakti-service-microservice-
-    dockerfilePath: ./mysql/Dockerfile
-    envVars:
-      - key: MYSQL_ROOT_PASSWORD
-        value: pass
-    plan: free
-    autoDeploy: true
+    autoDeploy: false
