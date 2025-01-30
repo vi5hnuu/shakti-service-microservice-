@@ -1,0 +1,136 @@
+services:
+  - name: api-gateway
+    type: web
+    env: docker
+    repo: https://github.com/vi5hnuu/shakti-service-microservice-
+    dockerfilePath: ./api-gateway/Dockerfile
+    envVars:
+      - key: EUREKA_CLIENT
+        value: api-gateway
+      - key: EUREKA_SERVER
+        value: discovery-service
+    plan: free
+    healthCheckPath: /
+    autoDeploy: true
+
+  - name: auth-service
+    type: web
+    env: docker
+    repo: https://github.com/vi5hnuu/shakti-service-microservice-
+    dockerfilePath: ./auth-service/Dockerfile
+    envVars:
+      - key: google.clientIds
+        value: 525806918024-v4i822juqija1dfpeu15k4rvjgk5195e.apps.googleusercontent.com,525806918024-99qjrvparkvu98eo5i47h0tsq1uh33oe.apps.googleusercontent.com
+      - key: MYSQL_USERNAME
+        value: root
+      - key: MYSQL_PASSWORD
+        value: pass
+      - key: MYSQL_HOST
+        value: shakti-mysql
+      - key: EUREKA_CLIENT
+        value: auth-service
+      - key: EUREKA_SERVER
+        value: discovery-service
+      - key: KAFKA_HOST
+        value: kafka-broker
+    plan: free
+    autoDeploy: true
+
+  - name: notification-service
+    type: web
+    env: docker
+    repo: https://github.com/vi5hnuu/shakti-service-microservice-
+    dockerfilePath: ./notification-service/Dockerfile
+    envVars:
+      - key: MYSQL_USERNAME
+        value: root
+      - key: MYSQL_PASSWORD
+        value: pass
+      - key: MYSQL_HOST
+        value: shakti-mysql
+      - key: EUREKA_CLIENT
+        value: notification-service
+      - key: EUREKA_SERVER
+        value: discovery-service
+      - key: KAFKA_HOST
+        value: kafka-broker
+    plan: free
+    autoDeploy: true
+
+  - name: app-service
+    type: web
+    env: docker
+    repo: https://github.com/vi5hnuu/shakti-service-microservice-
+    dockerfilePath: ./app-service/Dockerfile
+    envVars:
+      - key: MYSQL_USERNAME
+        value: root
+      - key: MYSQL_PASSWORD
+        value: pass
+      - key: MYSQL_HOST
+        value: shakti-mysql
+      - key: EUREKA_CLIENT
+        value: app-service
+      - key: EUREKA_SERVER
+        value: discovery-service
+    plan: free
+    autoDeploy: true
+
+  - name: discovery-service
+    type: web
+    env: docker
+    repo: https://github.com/vi5hnuu/shakti-service-microservice-
+    dockerfilePath: ./discovery-server/Dockerfile
+    plan: free
+    healthCheckPath: /
+    autoDeploy: true
+
+  - name: kafka-broker
+    type: private-service
+    env: docker
+    repo: https://github.com/vi5hnuu/shakti-service-microservice-
+    dockerfilePath: ./kafka/Dockerfile
+    envVars:
+      - key: KAFKA_BROKER_ID
+        value: "1"
+      - key: KAFKA_LISTENER_SECURITY_PROTOCOL_MAP
+        value: "PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT,CONTROLLER:PLAINTEXT"
+      - key: KAFKA_ADVERTISED_LISTENERS
+        value: "PLAINTEXT://broker:29092,PLAINTEXT_HOST://localhost:9092"
+      - key: KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR
+        value: "1"
+      - key: KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS
+        value: "0"
+      - key: KAFKA_TRANSACTION_STATE_LOG_MIN_ISR
+        value: "1"
+      - key: KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR
+        value: "1"
+      - key: KAFKA_PROCESS_ROLES
+        value: "broker,controller"
+      - key: KAFKA_NODE_ID
+        value: "1"
+      - key: KAFKA_CONTROLLER_QUORUM_VOTERS
+        value: "1@broker:29093"
+      - key: KAFKA_LISTENERS
+        value: "PLAINTEXT://broker:29092,CONTROLLER://broker:29093,PLAINTEXT_HOST://0.0.0.0:9092"
+      - key: KAFKA_INTER_BROKER_LISTENER_NAME
+        value: "PLAINTEXT"
+      - key: KAFKA_CONTROLLER_LISTENER_NAMES
+        value: "CONTROLLER"
+      - key: KAFKA_LOG_DIRS
+        value: "/tmp/kraft-combined-logs"
+      - key: CLUSTER_ID
+        value: "MkU3OEVBNTcwNTJENDM2Qk"
+    plan: free
+    autoDeploy: true
+
+  - name: shakti-mysql
+    type: private-service
+    env: docker
+    repo: https://github.com/vi5hnuu/shakti-service-microservice-
+    dockerfilePath: ./mysql/Dockerfile
+    envVars:
+      - key: MYSQL_ROOT_PASSWORD
+        value: pass
+    plan: free
+    autoDeploy: true
