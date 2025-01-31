@@ -173,7 +173,7 @@ public class UserController {
         if(userModel.isLocked()){
             throw new ApiException(HttpStatus.FORBIDDEN,"Your Account has been suspended");
         }else if(!userModel.isEnabled()){
-            throw new ApiException(HttpStatus.FORBIDDEN,"Account Not Verified");
+            throw new ApiException(HttpStatus.BAD_REQUEST,"Account Not Verified");
         }
 
         if(userModel.getAccountType().equals(AccountType.GOOGLE) && userModel.getPassword()==null) throw new ApiException(HttpStatus.BAD_REQUEST,"User not found");

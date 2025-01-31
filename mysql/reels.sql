@@ -14,3 +14,8 @@ CREATE TABLE reel_category (
     id VARCHAR(32) PRIMARY KEY, -- Unique ID for the category
     name VARCHAR(50) NOT NULL UNIQUE      -- Name of the category (e.g., Bhajans, Aarti)
 );
+
+INSERT INTO reels (id, video_url, title) VALUES
+(CONCAT('SRL', SUBSTRING(REPLACE(UUID(), '-', ''), 1, 29)), 'https://dcn39gthlx55v.cloudfront.net/shakti-reels/om krishnaya vasudevaye.mp4', 'om Krishnaye vasudevaye...'),
+(CONCAT('SRL', SUBSTRING(REPLACE(UUID(), '-', ''), 1, 29)), 'https://dcn39gthlx55v.cloudfront.net/shakti-reels/apni santan ko karm karna sikhye.mp4', 'apni santan ko karm karna sikhye'),
+(CONCAT('SRL', SUBSTRING(REPLACE(UUID(), '-', ''), 1, 29)), 'https://dcn39gthlx55v.cloudfront.net/shakti-reels/shakti-reels/how can one acquire knowledge effectively.mp4', 'how can one acquire knowledge effectively');

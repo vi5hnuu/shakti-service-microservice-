@@ -14,7 +14,3 @@ CREATE TABLE reels (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Time of upload
     FOREIGN KEY (category_id) REFERENCES reel_category(id) ON DELETE SET NULL
 );
-
-INSERT INTO reels (id, video_url, title) VALUES
-(CONCAT('SRL', SUBSTRING(REPLACE(UUID(), '-', ''), 1, 29)), 'https://dcn39gthlx55v.cloudfront.net/shakti-reels/om krishnaya vasudevaye.mp4', 'om Krishnaye vasudevaye...'),
-(CONCAT('SRL', SUBSTRING(REPLACE(UUID(), '-', ''), 1, 29)), 'https://dcn39gthlx55v.cloudfront.net/shakti-reels/apni santan ko karm karna sikhye.mp4', 'apni santan ko karm karna sikhye');

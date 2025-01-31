@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99cf0004-4955-45d8-a2de-baf56b0864c5" name="Changes" comment="added aartis">
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Dto/ReelCategoryDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Dto/ReelDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Entity/user/ReelCategoryModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/Entity/user/ReelModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/commons/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/controllers/ReelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/ReelService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/repository/ReelCategoryRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/repository/ReelRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-service/src/main/resources/migrations/reel-table.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql/reels.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="99cf0004-4955-45d8-a2de-baf56b0864c5" name="Changes" comment="forgot password only for custom login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/AartiRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/repository/AartiRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/AartiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/java/com/vi5hnu/app_service/services/AartiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-service/src/main/resources/migrations/reel-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app-service/src/main/resources/migrations/reel-table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql/reels.sql" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/reels.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +102,7 @@
       <recent name="com.vi5hnu.app_service.Dto" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.app-service">
+  <component name="RunManager" selected="Application.NotificationServiceApplication">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.vi5hnu.api_gateway.ApiGatewayApplication" />
       <module name="api-gateway" />
@@ -189,9 +178,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DiscoverServerApplication" />
-        <item itemvalue="Application.ApiGatewayApplication" />
         <item itemvalue="Application.NotificationServiceApplication" />
+        <item itemvalue="Application.ApiGatewayApplication" />
+        <item itemvalue="Application.DiscoverServerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -284,7 +273,55 @@
       <option name="project" value="LOCAL" />
       <updated>1737473322281</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added reels support">
+      <option name="closed" value="true" />
+      <created>1738229675185</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1738229675185</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added render-yml for render.com deployment">
+      <option name="closed" value="true" />
+      <created>1738230176786</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1738230176786</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added render-yml for render.com deployment">
+      <option name="closed" value="true" />
+      <created>1738230205669</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1738230205669</updated>
+    </task>
+    <task id="LOCAL-00014" summary="added render-yml for render.com deployment">
+      <option name="closed" value="true" />
+      <created>1738230385989</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1738230385989</updated>
+    </task>
+    <task id="LOCAL-00015" summary="added render-yml for render.com deployment">
+      <option name="closed" value="true" />
+      <created>1738230524287</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1738230524288</updated>
+    </task>
+    <task id="LOCAL-00016" summary="forgot password only for custom login">
+      <option name="closed" value="true" />
+      <created>1738252086823</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1738252086823</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -297,7 +334,10 @@
     <MESSAGE value="added fixes in auth-service : deleted user will never be re-activated instead new account [new entry] will be created" />
     <MESSAGE value="docker setup" />
     <MESSAGE value="dockerization done" />
-    <option name="LAST_COMMIT_MESSAGE" value="dockerization done" />
+    <MESSAGE value="added reels support" />
+    <MESSAGE value="added render-yml for render.com deployment" />
+    <MESSAGE value="forgot password only for custom login" />
+    <option name="LAST_COMMIT_MESSAGE" value="forgot password only for custom login" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -339,6 +379,11 @@
           <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
           <line>145</line>
           <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/vi5hnu/auth_service/controller/auth/UserController.java</url>
+          <line>267</line>
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
